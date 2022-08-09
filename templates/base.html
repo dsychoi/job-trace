@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+
+<html lang="en">
+{% load static %}
+<head>
+  <meta charset="utf-8">
+  <title>{% block title %}Job Trace{% endblock title %}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+</head>
+
+
+<body>
+<nav class="navbar navbar-expand-md navbar-light bg-light sticky-top navbar-static-top">
+<div class="container">
+  <a class="navbar-brand" href="{% url 'home' %}">Job Trace</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarResponsive">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'get_started' %}">Getting Started</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'home' %}#about">About</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+      </li>
+    </ul>
+    <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+    {% if user.is_authenticated %}
+      <li><a href="#" class="nav-link px-2 link-dark"></a></li>
+    </ul>
+    <div class="dropdown text-end">
+      <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+        {{ user.username }}
+      </a>
+      <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
+        <li><a class="dropdown-item" href="{% url 'password_change'%}">Change password</a></li>
+        <li><a class="dropdown-item" href="{% url 'logout' %}">Log Out</a></li>
+      </ul>
+    </div>
+    {% else %}
+    </ul>
+    <div class="text-end">
+      <a href="{% url 'login' %}" class="btn btn-outline-primary me-2">Log In</a>
+      <a href="{% url 'signup' %}" class="btn btn-primary">Sign Up</a>
+    </div>
+    {% endif %}
+  </div>
+</div>
+<main>
+  {% block content %}
+  {% endblock content %}
+</main>
+
+<footer>
+<div class="container-fluid padding">
+<div class="row text-center">
+  <div class="col-md-6">
+    <h5>Job Trace</h5>
+    <hr class="light">
+    <p>123-456-7890</p>
+    <p>fillerama@email.com</p>
+    <p>999 Lorem Ipsum Drive</p>
+    <p>Lipsum City, Lipsum, 10101</p>
+  </div>
+  <div class="col-md-6">
+    <h5>Feel free to contact me...</h5>
+    <hr class="light">
+    <p>Monday - Friday: 9:00 - 5:00 PM (MDT)</p>
+  </div>
+  <div class="col-12">
+    <hr class="light">
+    <h5>&copy; www.tobedecided.com</h5>
+  </div>
+</div>
+</div>
+</footer>
+
+
+</body>
+</html>
