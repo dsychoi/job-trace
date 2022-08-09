@@ -29,7 +29,9 @@ INSTALLED_APPS = [
     "crispy_bootstrap5",
     "accounts.apps.AccountsConfig",
     "pages.apps.PagesConfig",
-    "contact.apps.ContactConfig"
+    "contact.apps.ContactConfig",
+    "applications.apps.ApplicationsConfig",
+    "graphs.apps.GraphsConfig",
 ]
 
 MIDDLEWARE = [
