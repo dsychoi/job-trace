@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+</nav>
+<div class="wrapper">
+    <div class="application-entry">
+        <h1>{{ object.company_name }}</h1>
+        <p>by {{ object.author }} | {{ object.date }}</p>
+        <p>{{ object.status }}</p>
+    </div>
+    <p><a href="{% url 'application_edit' application.pk %}">Edit</a> |
+    <a href="{% url 'application_delete' application.pk %}">Delete</a></p>
+    <p>Back to <a href="{% url 'application_list' %}">All Applications</a>.</p>
+</div>
+{% endblock content %}

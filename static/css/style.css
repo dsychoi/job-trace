@@ -32,6 +32,10 @@ body {
     background: rgba(darken($primary,40%), 0.85);
 }
 
+.entry {
+
+}
+
 .navbar {
     padding: .8rem;
 }

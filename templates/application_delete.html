@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+</nav>
+<div class="wrapper">
+    <form action="" method="post">{% csrf_token %}
+        <p>Are you sure you want to delete this application?</p>
+        <button class="btn btn-danger ml-2" type="submit">Confirm</button>
+    </form>
+</div>
+{% endblock content %}

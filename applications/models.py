@@ -5,9 +5,9 @@ from django.urls import reverse
 
 class Application(models.Model):
 	responses = (
-		("?", "No response"),
-		("X", "Rejected"),
-		("O", "Passed"),
+		("No response", "No response"),
+		("Rejected", "Rejected"),
+		("Passed", "Passed"),
 	)
 	company_name = models.CharField(max_length=255)
 	status = models.CharField(max_length=255,choices=responses)
@@ -18,7 +18,7 @@ class Application(models.Model):
 		)
 
 	def __str__(self):
-		return self.title
+		return self.company_name
 
 	def get_absolute_url(self):
-		return reverse("entry_detail", kwargs={"pk": self.pk})
+		return reverse("application_detail", kwargs={"pk": self.pk})

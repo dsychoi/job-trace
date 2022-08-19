@@ -3,20 +3,20 @@
 {% block title %}Applications{% endblock title %}
 
 {% block content %}
+</nav>
 {% for application in application_list %}
+<div style="width: 40%; float:left" class="entry">
     <div class="card">
         <div class="card-header">
             <span class="font-weight-bold">{{ application.company_name }}</span> &middot;
-            <span class="text-muted">by {{ application.author }} |
-            {{ application.date }}</span>
-        </div>
-        <div class="card-body">
-            {{ application.status }}
-        </div>
-        <div class="card-footer text-center text-muted">
-            <a href="#">Edit</a> | <a href="#">Delete</a>
+            <span class="text-muted", style="display: inline">by {{ application.author }} |
+            Applied on {{ application.date }}</span>
+            <div class="text-muted" style="display: flex; justify-content: space-between;">
+                <span>{{ application.status }}</span>
+                <span><a href="{% url 'application_edit' application.pk %}">Edit</a> | <a href="{% url 'application_delete' application.pk %}">Delete</a></span>
+            </div>
         </div>
     </div>
-    <br />
+</div>
 {% endfor %}
 {% endblock content %}
